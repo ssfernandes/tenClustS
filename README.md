@@ -62,5 +62,5 @@ DEPENDECIES
 
 CONTACT
 -------
-    To report any bug or suggestion, contact me at sdsf@inesctec.pt.
+    To report any bug, comment or suggestion, contact me at sdsf@inesctec.pt.
 
