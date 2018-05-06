@@ -13,10 +13,6 @@ L=3; %window length
 R=5;%number of supernodes of the summary
 F=5;%number of CP tensor decomposition components (for tenClustS only)
 
-%generate summaries using kC (baseline, coded according to I. Tsalouchidou, G. De Francisci Morales, F. Bonchi and R. Baeza-Yates, "Scalable dynamic graph summarization," 2016 IEEE International Conference on Big Data (Big Data), pp. 1032-1039.)
-type='kC';
-[error_kc,compression_kc,time_kc]=online_summarization(dataset,T,R,L,type);
-
 %generate summaries using kM_euc
 type='kM_euc';
 [error_kmeuc,compression_kmeuc,time_kmeuc]=online_summarization(dataset,T,R,L,type);
@@ -36,7 +32,6 @@ fprintf('- compression cost(CC)\n')
 fprintf('- running time (T)\n\n')
 fprintf('Method   |     RE              CC              T\n');
 fprintf('------------------------------------------------------\n')
-fprintf('kC       | %.3f+/-%.3f %.3f+/-%.3f %.3f+/-%.3f \n',mean(error_kc),std(error_kc),mean(compression_kc),std(compression_kc),mean(time_kc),std(time_kc))
 fprintf('kM-euc   | %.3f+/-%.3f %.3f+/-%.3f %.3f+/-%.3f \n',mean(error_kmeuc),std(error_kmeuc),mean(compression_kmeuc),std(compression_kmeuc),mean(time_kmeuc),std(time_kmeuc))
 fprintf('kM-cos   | %.3f+/-%.3f %.3f+/-%.3f %.3f+/-%.3f \n',mean(error_kmcos),std(error_kmcos),mean(compression_kmcos),std(compression_kmcos),mean(time_kmcos),std(time_kmcos))
 fprintf('tenClustS| %.3f+/-%.3f %.3f+/-%.3f %.3f+/-%.3f \n',mean(error_tcs),std(error_tcs),mean(compression_tcs),std(compression_tcs),mean(time_tcs),std(time_tcs))
