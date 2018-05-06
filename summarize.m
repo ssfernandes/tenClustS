@@ -9,7 +9,7 @@ function [S,Ag,Ag_,error,compression,time]=summarize(Wnew,R,type)
 %				   : matrix of the network at time stamp t in the window
 %   R [[x,y]-array]: summarization parameters with x=the number of summary supernodes and y=the number of CP tensor 
 %				   : decomposition components (for tenClustS only)
-%   type [str]: summarization method {'kC','kM_euc','kM_cos','tenClustS'}
+%   type [str]: summarization method {'kM_euc','kM_cos','tenClustS'}
 %------------------------------
 % OUTPUT
 %   Ag [sptensor]: adjacency matrix of the summary generated 
@@ -72,18 +72,7 @@ elseif strcmp(type,'kM_cos')
     
     %apply kmeans with cosine distance to the representation obtained
     clusters=kmeans(T,R,'Distance','cosine','Replicates',5);    
-    
-elseif strcmp(type,'kC') %(baseline, coded according to I. Tsalouchidou, G. De Francisci Morales, F. Bonchi and R. Baeza-Yates, "Scalable dynamic graph summarization," 2016 IEEE International Conference on Big Data (Big Data), pp. 1032-1039.)
-	%    kC
-	%------------
-   
-    %matricize tensor window
-    Wm=sptenmat(Wnew,1);
-    Wm=sparse(Wm.subs(:,1),Wm.subs(:,2),Wm.vals, size(Wm,1),size(Wm,2)); %format conversion
-    
-    %assign supernodes/clusters by applying kmeans with cos distance to the node representation
-    clusters=kmeans(Wm,R,'Distance','cosine','Replicates',5);
-    
+     
 elseif strcmp(type,'tenClustS')
 	%   tenClustS
 	%---------------
@@ -99,8 +88,7 @@ elseif strcmp(type,'tenClustS')
     %assign supernodes/clusters by applying
     clusters=kmeans(E,R,'Replicates',5);
 else
-    warning('Invalid summarization method. Please consider one of the following methods: kC, kM_euc, kM_cos, tenClustS', 'ERROR', 'error')
-	%error('Invalid summarization method. Please consider one of the following methods: kC, kM_euc, kM_cos, tenClustS')
+    warning('Invalid summarization method. Please consider one of the following methods: kM_euc, kM_cos, tenClustS', 'ERROR', 'error')
 end
  
 %------------------------------
