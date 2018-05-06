@@ -11,7 +11,7 @@ function [error,compression,time]=online_summarization(dataset,T,R,L,type)
 %   R [[x,y]-array]: summarization parameters with x=the number of summary supernodes and y=the number of CP 
 %				   : tensor decomposition components (for tenClustS only)
 %   L [int]: length of the sliding window
-%   type [str]: summarization method {'kC','kM_euc','kM_cos','tenClustS'}
+%   type [str]: summarization method {'kM_euc','kM_cos','tenClustS'}
 %------------------------------
 % OUTPUT
 %   error [double list]: reconstruction error by window (error(i) is the
