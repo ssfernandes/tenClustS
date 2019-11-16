@@ -12,11 +12,12 @@ function [S,Ag,Ag_,error,compression,time]=summarize(Wnew,R,type)
 %   type [str]: summarization method {'kM_euc','kM_cos','tenClustS'}
 %------------------------------
 % OUTPUT
+%   S [cell]: supernodes assignment
 %   Ag [sptensor]: adjacency matrix of the summary generated 
 %   Ag_ [sptensor]: lifted adjacency  matrix (of the reconstructed network)
 %   error [double]: reconstruction error  of the summary generated
-%	compression[double]: compression cost of the summary generated
-%	time [double]: running time required to generate the summary
+%   compression[double]: compression cost of the summary generated
+%   time [double]: running time required to generate the summary
 %------------------------------
 % DESCRIPTION
 %   Given the tensor window, construct the summary supergraph and compute its reconstruction error and compression cost
