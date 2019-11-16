@@ -11,7 +11,7 @@ DESCRIPTION
 
 FILES
 -----
-    For illustration purposes we provide a sythetic time-evolving network (synthdata.mat) and a demo file (demo.m).
+    For illustration purposes we provide a sythetic time-evolving network (synthdata.mat) and 2 demo files (demo_single_window.m and demo_sliding_window.m). The first demo aims at demonstrating as tenClustS may be called to summarize a given network time-window (by using summarize.m function). The second demo shows how to sequentially apply tenCLustS in a slidding window of a given network (using online_summarization.m function)
 
 MANUSCRIPT DATASETS
 -------------------
